@@ -30,6 +30,7 @@ public class ProyectoFinal_SO {
         ArrayList<AreaLibre> TAL = new ArrayList();
         AreaLibre.setTAL(TAL);
         
+        System.out.println("Chinga tu mare pot");
     }
     
 }
