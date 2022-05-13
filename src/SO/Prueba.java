@@ -14,6 +14,7 @@ public class Prueba {
      */
     public static void main(String[] args) {
         int Prueba =2;
+        Prueba++;
     }
     
 }
