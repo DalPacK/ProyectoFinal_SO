@@ -4,6 +4,10 @@
  */
 package SO;
 
+import SO.Estados.NoEntrante;
+import SO.Estados.Estado;
+import Tablas.Particion;
+
 /**
  *
  * @author braul
@@ -30,9 +34,11 @@ public class Proceso {
         e.procesar(this);
     }
     
+    public void eliminar(){
+        Particion.TP.remove(this);
+    }
     
-    
-
+    //Geters y Seters
     public String getNombre() {
         return nombre;
     }

@@ -2,22 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package SO;
+package SO.Estados;
+
+import SO.Proceso;
 
 /**
  *
  * @author braul
  */
-public class Prefinalzado extends Estado {
+public class Procesando extends Estado {
 
     @Override
     public String toString() {
-        return "D";
+        return "A";
     }
 
     @Override
     public void procesar(Proceso p) {
-        p.setE(new Finaizado());
+        if(p.getDuracion()<=0){
+            p.setE(new Finalizado());
+        }
     }
     
 }

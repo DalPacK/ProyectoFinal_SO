@@ -13,7 +13,7 @@ import java.util.Queue;
  *
  * @author braul
  */
-public class ProyectoFinal_SO {
+public class ProyectoFinalSO {
 
     /**
      * @param args the command line arguments
@@ -26,9 +26,16 @@ public class ProyectoFinal_SO {
         procesos.add(new Proceso("D", 6, 4, 6));
         procesos.add(new Proceso("E",14, 5, 5));
         
-        
+        //Tabla de Areas Libres
         ArrayList<AreaLibre> TAL = new ArrayList();
         AreaLibre.setTAL(TAL);
+        TAL.add(new AreaLibre(10, 54));
+        
+        
+        //Tabla de Particiones
+        ArrayList<Proceso> TP = new ArrayList();
+        
+        AreaLibre.Imprimir();
         
         System.out.println("Chinga tu mare pot");
     }

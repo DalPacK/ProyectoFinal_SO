@@ -5,12 +5,24 @@
 package Tablas;
 
 import SO.Proceso;
+import java.util.ArrayList;
 
 /**
  *
  * @author braul
  */
 public class Particion{
-    private Proceso p;
-    private int numero;
+    public static ArrayList<Proceso> TP;
+
+    public void setTP(ArrayList<Proceso> TP) {
+        Particion.TP = TP;
+    }
+    
+    public void eliminar(Proceso proceso){
+        TP.remove(proceso);
+    }
+    public int getNumero(Proceso proceso){
+        return TP.lastIndexOf(proceso);
+    }
+
 }
