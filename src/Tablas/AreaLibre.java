@@ -11,13 +11,11 @@ import java.util.Collections;
  *
  * @author braul
  */
-public class AreaLibre extends RAM{
+public class AreaLibre extends Ram{
     public  static ArrayList<AreaLibre> TAL;
 
     public AreaLibre(int localidad, int tamaño) {
-        this.localidad = localidad;
-        this.tamaño = tamaño;
-        this.nombre ="AL";
+        super(localidad, tamaño, "AL");
     }
     
     public static void insertar(AreaLibre a){

@@ -5,24 +5,22 @@ import SO.Estados.NoEntrante;
 import SO.Estados.Estado;
 import Tablas.AreaLibre;
 import Tablas.Particion;
-import Tablas.RAM;
+import Tablas.Ram;
 
 /**
  *
  * @author braul
  */
-public class Proceso extends RAM{
+public class Proceso extends Ram{
     private int tiempoLlegada;
     private int duracion;
     private Estado e;
 
     public Proceso(String nombre, int tamanio, int tiempoLlegada, int duracion) {
-        this.nombre = nombre;
-        this.tamaño = tamanio;
+        super(0, tamanio, nombre);
         this.tiempoLlegada = tiempoLlegada;
         this.duracion = duracion;
         e = new NoEntrante();
-        localidad =0;
     }
     
     public void Procesar(){
@@ -36,9 +34,6 @@ public class Proceso extends RAM{
     }
     
     //Geters y Seters
-    public String getNombre() {
-        return nombre;
-    }
     public int getTiempoLlegada() {
         return tiempoLlegada;
     }

@@ -7,7 +7,6 @@ package SO;
 import Tablas.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Queue;
 
 /**
@@ -77,6 +76,7 @@ public class ProyectoFinalSO {
                 procesos.add(actual);
             }
         }
+        //Verificar en cada paso si un proceso ya termino
         ArrayList<Proceso> IteratorTP = (ArrayList<Proceso>) TP.clone();
         for(Proceso p: IteratorTP){
             p.Procesar();
@@ -86,6 +86,19 @@ public class ProyectoFinalSO {
         AreaLibre.Imprimir();
         System.out.println("-Particion-");
         Particion.Imprimir();
+        
+        //Mover a otra parte para tener acceso fuera del paso
+        ArrayList<Ram> tablaRAM = new ArrayList();
+        Ram.setTRAM(tablaRAM);
+        tablaRAM.add(new Ram(0, 10, "SO"));
+        for(Proceso p: TP){
+            tablaRAM.add(p);
+        }
+        for(AreaLibre p: TAL){
+            tablaRAM.add(p);
+        }
+        System.out.println("-RAM-");
+        Ram.imprimir();
     }
     
 }
