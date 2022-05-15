@@ -19,6 +19,7 @@ public class ProyectoFinalSO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         Queue<Proceso> procesos = new ArrayDeque();
         procesos.add(new Proceso("A", 8, 1, 7));
         procesos.add(new Proceso("B",14, 2, 7));
@@ -29,13 +30,18 @@ public class ProyectoFinalSO {
         //Tabla de Areas Libres
         ArrayList<AreaLibre> TAL = new ArrayList();
         AreaLibre.setTAL(TAL);
-        TAL.add(new AreaLibre(10, 54));
-        
-        
+        AreaLibre.insertar(new AreaLibre(10, 54));
+
         //Tabla de Particiones
         ArrayList<Proceso> TP = new ArrayList();
-        
+        TP.add(procesos.remove());
+        Particion.setTP(TP);
         AreaLibre.Imprimir();
+        System.out.println();
+        Particion.Imprimir();
+        
+        
+        
         
         System.out.println("Chinga tu mare pot");
     }

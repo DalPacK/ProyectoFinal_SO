@@ -14,15 +14,23 @@ import java.util.ArrayList;
 public class Particion{
     public static ArrayList<Proceso> TP;
 
-    public void setTP(ArrayList<Proceso> TP) {
+    public static void setTP(ArrayList<Proceso> TP) {
         Particion.TP = TP;
     }
     
     public void eliminar(Proceso proceso){
         TP.remove(proceso);
     }
-    public int getNumero(Proceso proceso){
+    public static int getNumero(Proceso proceso){
         return TP.lastIndexOf(proceso);
     }
+    
+    public static void Imprimir(){
+        for(Proceso p: TP){
+            System.out.print(String.valueOf(Particion.getNumero(p)) +" | ");
+            System.out.println(p);
+        }
+    }
+    
 
 }

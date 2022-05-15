@@ -5,19 +5,26 @@
 package Tablas;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
  * @author braul
  */
-public class AreaLibre {
+public class AreaLibre implements Comparable{
     public  static ArrayList<AreaLibre> TAL;
-    private final int localidad;
+    private int localidad;
     private final int tamaño;
 
     public AreaLibre(int localidad, int tamaño) {
         this.localidad = localidad;
         this.tamaño = tamaño;
+    }
+    
+    public static void insertar(AreaLibre a){
+        TAL.add(a);
+        Collections.sort(TAL);
+
     }
     
     
@@ -46,6 +53,20 @@ public class AreaLibre {
         for(AreaLibre al: TAL){
             System.out.println(al);
         }
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int otro = ((AreaLibre)o).localidad;
+        return Integer.compare(this.localidad, otro);
+    }
+
+    public int getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(int localidad) {
+        this.localidad = localidad;
     }
     
     
