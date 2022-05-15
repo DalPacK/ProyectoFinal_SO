@@ -3,27 +3,24 @@ package SO;
 
 import SO.Estados.NoEntrante;
 import SO.Estados.Estado;
+import Tablas.AreaLibre;
 import Tablas.Particion;
+import Tablas.Ram;
 
 /**
  *
  * @author braul
  */
-public class Proceso {
-    private final String nombre;
-    private final int tamaño;
-    private final int tiempoLlegada;
+public class Proceso extends Ram{
+    private int tiempoLlegada;
     private int duracion;
     private Estado e;
-    private int localidad;
 
     public Proceso(String nombre, int tamanio, int tiempoLlegada, int duracion) {
-        this.nombre = nombre;
-        this.tamaño = tamanio;
+        super(0, tamanio, nombre);
         this.tiempoLlegada = tiempoLlegada;
         this.duracion = duracion;
         e = new NoEntrante();
-        localidad =0;
     }
     
     public void Procesar(){
@@ -32,16 +29,11 @@ public class Proceso {
     }
     
     public void eliminar(){
+        AreaLibre.insertar(new AreaLibre(this.localidad, this.tamaño));
         Particion.TP.remove(this);
     }
     
     //Geters y Seters
-    public String getNombre() {
-        return nombre;
-    }
-    public int getTamaño() {
-        return tamaño;
-    }
     public int getTiempoLlegada() {
         return tiempoLlegada;
     }
@@ -54,11 +46,8 @@ public class Proceso {
     public void setE(Estado e) {
         this.e = e;
     }
-    public int getLocalidad() {
-        return localidad;
-    }
-    public void setLocalidad(int localidad) {
-        this.localidad = localidad;
+    public void setTiempoLlegada(int tiempoLlegada) {
+        this.tiempoLlegada = tiempoLlegada;
     }
     //Fin Geneters Setters
     
@@ -70,5 +59,6 @@ public class Proceso {
         retornar+= " | "+ nombre;
         return retornar;
     }
+    
  
 }

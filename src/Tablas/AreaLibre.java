@@ -11,20 +11,28 @@ import java.util.Collections;
  *
  * @author braul
  */
-public class AreaLibre implements Comparable{
+public class AreaLibre extends Ram{
     public  static ArrayList<AreaLibre> TAL;
-    private int localidad;
-    private final int tamaño;
 
     public AreaLibre(int localidad, int tamaño) {
-        this.localidad = localidad;
-        this.tamaño = tamaño;
+        super(localidad, tamaño, "AL");
     }
     
     public static void insertar(AreaLibre a){
         TAL.add(a);
         Collections.sort(TAL);
-
+        if(TAL.size()>1){
+        for(int i=0; i< TAL.size()-1; i++){
+            AreaLibre aux = TAL.get(i);
+            AreaLibre sig = TAL.get(i+1);
+            int finLoc = aux.getLocalidad() +aux.getTamaño();
+            if(sig.getLocalidad() == finLoc){
+                aux.setTamaño(aux.getTamaño() +sig.getTamaño());
+                i--;
+                sig.eliminar();
+            } 
+        }
+        }
     }
     
     
@@ -35,7 +43,6 @@ public class AreaLibre implements Comparable{
     public int getNumero(){
         return TAL.lastIndexOf(this)+ 1;
     }
-
     public static void setTAL(ArrayList<AreaLibre> TAL) {
         AreaLibre.TAL = TAL;
     }
@@ -54,22 +61,5 @@ public class AreaLibre implements Comparable{
             System.out.println(al);
         }
     }
-
-    @Override
-    public int compareTo(Object o) {
-        int otro = ((AreaLibre)o).localidad;
-        return Integer.compare(this.localidad, otro);
-    }
-
-    public int getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(int localidad) {
-        this.localidad = localidad;
-    }
-    
-    
-    
-    
+ 
 }

@@ -22,7 +22,7 @@ public class Particion{
         TP.remove(proceso);
     }
     public static int getNumero(Proceso proceso){
-        return TP.lastIndexOf(proceso);
+        return TP.lastIndexOf(proceso) +1;
     }
     
     public static void Imprimir(){

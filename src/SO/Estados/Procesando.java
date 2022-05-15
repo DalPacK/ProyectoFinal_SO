@@ -19,7 +19,7 @@ public class Procesando extends Estado {
 
     @Override
     public void procesar(Proceso p) {
-        if(p.getDuracion()<=0){
+        if(p.getDuracion()<=1){
             p.setE(new Finalizado());
         }
     }
