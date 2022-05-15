@@ -14,7 +14,7 @@ import java.util.Collections;
 public class AreaLibre implements Comparable{
     public  static ArrayList<AreaLibre> TAL;
     private int localidad;
-    private final int tamaño;
+    private int tamaño;
 
     public AreaLibre(int localidad, int tamaño) {
         this.localidad = localidad;
@@ -35,7 +35,18 @@ public class AreaLibre implements Comparable{
     public int getNumero(){
         return TAL.lastIndexOf(this)+ 1;
     }
-
+    public int getTamaño() {
+        return tamaño;
+    }
+    public void setTamaño(int tamaño) {
+        this.tamaño = tamaño;
+    }
+    public int getLocalidad() {
+        return localidad;
+    }
+    public void setLocalidad(int localidad) {
+        this.localidad = localidad;
+    }
     public static void setTAL(ArrayList<AreaLibre> TAL) {
         AreaLibre.TAL = TAL;
     }
@@ -60,16 +71,5 @@ public class AreaLibre implements Comparable{
         int otro = ((AreaLibre)o).localidad;
         return Integer.compare(this.localidad, otro);
     }
-
-    public int getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(int localidad) {
-        this.localidad = localidad;
-    }
-    
-    
-    
-    
+ 
 }

@@ -14,13 +14,17 @@ import java.util.Queue;
  * @author braul
  */
 public class ProyectoFinalSO {
+    static ArrayList<AreaLibre> TAL;
+    static ArrayList<Proceso> TP;
+    static Queue<Proceso> procesos;
+    static int paso =0;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        Queue<Proceso> procesos = new ArrayDeque();
+        procesos = new ArrayDeque();
         procesos.add(new Proceso("A", 8, 1, 7));
         procesos.add(new Proceso("B",14, 2, 7));
         procesos.add(new Proceso("C",18, 3, 4));
@@ -28,12 +32,12 @@ public class ProyectoFinalSO {
         procesos.add(new Proceso("E",14, 5, 5));
         
         //Tabla de Areas Libres
-        ArrayList<AreaLibre> TAL = new ArrayList();
+        TAL = new ArrayList();
         AreaLibre.setTAL(TAL);
         AreaLibre.insertar(new AreaLibre(10, 54));
 
         //Tabla de Particiones
-        ArrayList<Proceso> TP = new ArrayList();
+        TP = new ArrayList();
         TP.add(procesos.remove());
         Particion.setTP(TP);
         AreaLibre.Imprimir();
@@ -44,6 +48,17 @@ public class ProyectoFinalSO {
         
         
         System.out.println("Chinga tu mare pot");
+    }
+    
+    public void Paso(){
+        paso++;
+        if(procesos.peek().getTiempoLlegada() == paso){
+            Proceso actual = procesos.remove();
+            int i=0;
+            AreaLibre checar = TAL.get(i);
+            while(actual.getTamaño()> checar. )
+            
+        }
     }
     
 }
