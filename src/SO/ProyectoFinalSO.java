@@ -7,6 +7,7 @@ package SO;
 import Tablas.*;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Queue;
 
 /**
@@ -39,17 +40,26 @@ public class ProyectoFinalSO {
         //Tabla de Particiones
         TP = new ArrayList();
         Particion.setTP(TP);
+        System.out.println("Paso 0:");
+        System.out.println("-Area Libre");
         AreaLibre.Imprimir();
-        Paso();
+        System.out.println("-Particion-");
+        Particion.Imprimir();
+        do{
+           Paso();
+        }while(!TP.isEmpty());
+        
     }
     
     public static void Paso(){
         paso++;
+        System.out.println("Paso "+paso+":");
         //Insertar Proceso
-        if(procesos.peek().getTiempoLlegada() == paso){
+        if(!procesos.isEmpty() && procesos.peek().getTiempoLlegada() == paso){
             Proceso actual = procesos.remove();
             int i=0;
             AreaLibre seleccion = TAL.get(i);
+            try{
             while(actual.getTamaño()> seleccion.getTamaño() ){
                 i++;
                 TAL.get(i);
@@ -60,8 +70,21 @@ public class ProyectoFinalSO {
             
             seleccion.setLocalidad(localidad);
             seleccion.setTamaño(tamaño);
-            
+            TP.add(actual);
+            }catch(IndexOutOfBoundsException e){
+                actual.setTiempoLlegada(paso +1);
+                procesos.add(actual);
+            }
         }
+        ArrayList<Proceso> IteratorTP = (ArrayList<Proceso>) TP.clone();
+        for(Proceso p: IteratorTP){
+            p.Procesar();
+        }
+
+        System.out.println("-Area Libre");
+        AreaLibre.Imprimir();
+        System.out.println("-Particion-");
+        Particion.Imprimir();
     }
     
 }

@@ -3,6 +3,7 @@ package SO;
 
 import SO.Estados.NoEntrante;
 import SO.Estados.Estado;
+import Tablas.AreaLibre;
 import Tablas.Particion;
 
 /**
@@ -12,7 +13,7 @@ import Tablas.Particion;
 public class Proceso {
     private final String nombre;
     private final int tamaño;
-    private final int tiempoLlegada;
+    private int tiempoLlegada;
     private int duracion;
     private Estado e;
     private int localidad;
@@ -32,6 +33,7 @@ public class Proceso {
     }
     
     public void eliminar(){
+        AreaLibre.insertar(new AreaLibre(this.localidad, this.tamaño));
         Particion.TP.remove(this);
     }
     
@@ -59,6 +61,9 @@ public class Proceso {
     }
     public void setLocalidad(int localidad) {
         this.localidad = localidad;
+    }
+    public void setTiempoLlegada(int tiempoLlegada) {
+        this.tiempoLlegada = tiempoLlegada;
     }
     //Fin Geneters Setters
     

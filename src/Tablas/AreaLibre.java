@@ -24,7 +24,18 @@ public class AreaLibre implements Comparable{
     public static void insertar(AreaLibre a){
         TAL.add(a);
         Collections.sort(TAL);
-
+        if(TAL.size()>1){
+        for(int i=0; i< TAL.size()-1; i++){
+            AreaLibre aux = TAL.get(i);
+            AreaLibre sig = TAL.get(i+1);
+            int finLoc = aux.getLocalidad() +aux.getTamaño();
+            if(sig.getLocalidad() == finLoc){
+                aux.setTamaño(aux.getTamaño() +sig.getTamaño());
+                i--;
+                sig.eliminar();
+            } 
+        }
+        }
     }
     
     
