@@ -17,6 +17,7 @@ import java.util.Queue;
 public class ProyectoFinalSO {
     static ArrayList<AreaLibre> TAL;
     static ArrayList<Proceso> TP;
+    
     static Queue<Proceso> procesos;
     static int paso =0;
 

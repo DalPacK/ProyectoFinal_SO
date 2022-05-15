@@ -11,14 +11,13 @@ import java.util.Collections;
  *
  * @author braul
  */
-public class AreaLibre implements Comparable{
+public class AreaLibre extends RAM{
     public  static ArrayList<AreaLibre> TAL;
-    private int localidad;
-    private int tamaño;
 
     public AreaLibre(int localidad, int tamaño) {
         this.localidad = localidad;
         this.tamaño = tamaño;
+        this.nombre ="AL";
     }
     
     public static void insertar(AreaLibre a){
@@ -46,18 +45,6 @@ public class AreaLibre implements Comparable{
     public int getNumero(){
         return TAL.lastIndexOf(this)+ 1;
     }
-    public int getTamaño() {
-        return tamaño;
-    }
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
-    }
-    public int getLocalidad() {
-        return localidad;
-    }
-    public void setLocalidad(int localidad) {
-        this.localidad = localidad;
-    }
     public static void setTAL(ArrayList<AreaLibre> TAL) {
         AreaLibre.TAL = TAL;
     }
@@ -75,12 +62,6 @@ public class AreaLibre implements Comparable{
         for(AreaLibre al: TAL){
             System.out.println(al);
         }
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        int otro = ((AreaLibre)o).localidad;
-        return Integer.compare(this.localidad, otro);
     }
  
 }

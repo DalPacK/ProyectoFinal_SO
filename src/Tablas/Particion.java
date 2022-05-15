@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author braul
  */
-public class Particion{
+public class Particion extends RAM{
     public static ArrayList<Proceso> TP;
 
     public static void setTP(ArrayList<Proceso> TP) {
