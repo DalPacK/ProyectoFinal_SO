@@ -38,25 +38,28 @@ public class ProyectoFinalSO {
 
         //Tabla de Particiones
         TP = new ArrayList();
-        TP.add(procesos.remove());
         Particion.setTP(TP);
         AreaLibre.Imprimir();
-        System.out.println();
-        Particion.Imprimir();
-        
-        
-        
-        
-        System.out.println("Chinga tu mare pot");
+        Paso();
     }
     
-    public void Paso(){
+    public static void Paso(){
         paso++;
+        //Insertar Proceso
         if(procesos.peek().getTiempoLlegada() == paso){
             Proceso actual = procesos.remove();
             int i=0;
-            AreaLibre checar = TAL.get(i);
-            while(actual.getTamaño()> checar. )
+            AreaLibre seleccion = TAL.get(i);
+            while(actual.getTamaño()> seleccion.getTamaño() ){
+                i++;
+                TAL.get(i);
+            }
+            actual.setLocalidad(seleccion.getLocalidad());
+            int localidad = seleccion.getLocalidad() + actual.getTamaño();
+            int tamaño = seleccion.getTamaño() - actual.getTamaño();
+            
+            seleccion.setLocalidad(localidad);
+            seleccion.setTamaño(tamaño);
             
         }
     }
